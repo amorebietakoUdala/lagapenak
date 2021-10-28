@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'user_bundle' %}
+
+{% block message %}
+    {% for msg in app.session.flashBag.get('success') %}
+	<div class="alert alert-success margin-top-13">
+	    {{ msg | trans}}
+	</div>
+    {% endfor %}
+    {% for msg in app.session.flashBag.get('error') %}
+	<div class="alert alert-danger margin-top-13">
+	    {{ msg | trans}}
+	</div>
+    {% endfor %}
+{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block body %}
+    {% block user_content %}{% endblock %}
+{% endblock %}

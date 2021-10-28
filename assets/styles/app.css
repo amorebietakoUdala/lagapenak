@@ -1,0 +1,47 @@
+@import '~bootstrap';
+
+body {
+    padding: 0.1em 0.1em 0.1em 0.1em;
+    line-height: 1;
+    margin-bottom: 2.5rem;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 150px auto 200px 100px;
+    grid-template-areas: "logo titulo erabiltzailea idioma";
+    justify-content: space-beetween;
+    text-align: center;
+    align-items: center;
+}
+
+main {
+    width: 100vw;
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+}
+
+.titulua {
+    display: flex;
+    text-align: center;
+}
+
+.avatar {
+    float: right;
+    height: 3rem;
+    border-radius: 3rem;
+}
+
+@media (max-width: 767px) {
+    .logo {
+        height: 50px;
+        width: auto;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}

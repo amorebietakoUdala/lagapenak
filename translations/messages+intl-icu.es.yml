@@ -1,0 +1,12 @@
+messages.appTitle: "Consulta directorio DIR3"
+
+title.office.search: "Busqueda de oficinas DIR3"
+
+office.code: "Código"
+office.description: "Denominación"
+office.unitCode: "Código de Unidad"
+office.unitDescription: "Denominación de Unidad"
+
+btn.search: "Buscar"
+
+message.no_records: "No se han encontrado resultados"

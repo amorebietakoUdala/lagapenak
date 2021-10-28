@@ -1,0 +1,15 @@
+<div class="container-fluid">
+   {{ form_start(form) }}
+      <div class="row align-items-center">
+         <div class="col-auto">
+            {{ form_label(form.description) }}
+         </div>
+         <div class="col-auto">
+            {{ form_widget(form.description) }}
+         </div>
+         <div class="col-auto">
+            <button class="btn btn-primary">{{ button_label|default('btn.search'|trans) }}</button>
+         </dvi>
+      </div>
+   {{ form_end(form) }}
+</div>

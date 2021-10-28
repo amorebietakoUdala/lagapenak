@@ -1,0 +1,12 @@
+messages.appTitle: "DIR3 zerrendaren bilaketa"
+
+title.office.search: "DIR3 bulego bilaketa"
+
+office.code: "Kodea"
+office.description: "Denominazioa"
+office.unitCode: "Unitate kodea"
+office.unitDescription: "Unitate denominazioa"
+
+btn.search: "Bilatu"
+
+message.no_records: "Ez da emaitzarik aurkitu"
