@@ -74,6 +74,9 @@ class LoanRepository extends ServiceEntityRepository
         }
         if ($status !== null) {
             switch ($status) {
+                case 'notReturned':
+                    $qb->andWhere('l.dateOfReturn is null');
+                    break;
                 case 'asked':
                     $qb->andWhere('l.date is not null');
                     break;

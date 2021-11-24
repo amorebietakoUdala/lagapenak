@@ -209,7 +209,6 @@ class LoanController extends AbstractController
         }
 
         $template = $request->query->get('ajax') ? '_list.html.twig' : 'index.html.twig';
-
         return $this->renderForm('loan/' . $template, [
             'loans' => $loans,
             'filter' => $searchFilter,

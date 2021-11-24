@@ -65,6 +65,7 @@ class LoanSearchType extends AbstractType
         ])
         ->add('status',  ChoiceType::class,[
             'choices' => [
+                'loanSearch.notReturned' => 'notReturned',
                 'loanSearch.asked' => 'asked',
                 'loanSearch.loaned' => 'loaned',
                 'loanSearch.returned' => 'returned',
@@ -72,7 +73,7 @@ class LoanSearchType extends AbstractType
             'placeholder' => 'option.selectStatus',
             'label' => 'loanSearch.status',
             'required' => false,
-            'data' => 'asked',
+            'data' => 'notReturned',
         ])
         ->add('signature',null,[
             'label' => 'loanSearch.signature',
