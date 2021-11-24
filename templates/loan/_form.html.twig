@@ -1,0 +1,64 @@
+{% block message %}
+	{{ include('common/_messages.html.twig') }}
+{% endblock %}
+
+<div class="container-fluid" {{ stimulus_controller('loan-form', 
+	{ 
+		'locale': app.request.locale|split('_')[0], 
+	}) 
+}}>
+
+	{{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+		<div class="row">
+			<div class="col">
+				{{ form_label(form.description) }}
+				{{ form_widget(form.description, {'attr': {'class': 'form-control form-control-sm'}}) }}
+			</div>
+		</div>			
+		<div class="row">
+			<div class="col">
+				{{ form_label(form.note) }}
+				{{ form_widget(form.note, {'attr': {'class': 'form-control form-control-sm'}}) }}
+			</div>
+		</div>
+	{% if is_granted('ROLE_ARCHIVER') %}
+		<div id="archiver_fields">
+			<div class="row">
+				<div class="col-lg-2">
+					{{ form_label(form.date) }}
+					{{ form_widget(form.date, {'attr': {'class': 'js-datepicker form-control form-control-sm'}}) }}
+				</div>
+				<div class="col-lg-2">
+					{{ form_label(form.askedBy) }}
+					{{ form_widget(form.askedBy, {'attr': {'class': 'js-askedBySelect form-control form-control-sm'}}) }}
+				</div>
+				<div class="col-lg-2">
+					{{ form_label(form.signature) }}
+					{{ form_widget(form.signature, {'attr': {'class': 'form-control form-control-sm' }}) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2">
+					{{ form_label(form.dateOfLoan) }}
+					{{ form_widget(form.dateOfLoan, {'attr': {'class': 'js-datepicker form-control form-control-sm'}}) }}
+				</div>
+				<div class="col-lg-2">
+					{{ form_label(form.dateOfReturn) }}
+					{{ form_widget(form.dateOfReturn, {'attr': {'class': 'js-datepicker form-control form-control-sm'}}) }}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	<div id="buttons" class="mt-2"> 
+		<a class="btn btn-secondary" href="{{ path('loan_index') }}" formnovalidate>{{ 'btn.cancel' | trans }}</a>
+		{% if not readonly %}
+			<button class="btn btn-primary"  formnovalidate>{{ 'btn.save' | trans }}</button>
+		{% endif %}
+		{% if is_granted('ROLE_ARCHIVER') %}
+			{# <button class="btn btn-secondary">{{ 'btn.send' | trans }}</button>
+			<button class="btn btn-secondary">{{ 'btn.returned' | trans }}</button> #}
+		{% endif %}
+	</div>
+		{{ form_widget(form._token) }}
+		{{ form_end(form, {'render_rest': false}) }}
+</div>

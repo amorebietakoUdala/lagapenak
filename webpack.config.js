@@ -10,7 +10,7 @@ Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
-    .setPublicPath('/build')
+    .setPublicPath('/lagapenak/build')
     // only needed for CDN's or sub-directory deploy
     .setManifestKeyPrefix('build/')
 
@@ -21,9 +21,8 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
-    .addEntry('office_list', './assets/js/office/list.js')
-    // .addEntry('user_edit', './assets/js/user/edit.js')
-
+    .addEntry('user_list', './assets/js/user/list.js')
+    .addEntry('user_edit', './assets/js/user/edit.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -76,5 +75,9 @@ Encore
     .copyFiles({
         from: './assets/images',
         to: 'images/[path][name].[hash:8].[ext]'
+    })
+    .copyFiles({
+        from: './assets/resources',
+        to: 'resources/[path][name].[ext]'
     })
 module.exports = Encore.getWebpackConfig();

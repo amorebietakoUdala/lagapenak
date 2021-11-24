@@ -1,12 +1,20 @@
 security:
-    encoders:
-        legacy_bcrypt:
-            algorithm: bcrypt
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_ARCHIVER
+
+    # https://symfony.com/doc/current/security/authenticator_manager.html
+    enable_authenticator_manager: true
+    # https://symfony.com/doc/current/security.html#c-hashing-passwords
+    password_hashers:
+        legacy:
+            algorithm: sodium
             
         App\Entity\User:
-            algorithm: auto
+            algorithm: bcrypt
             migrate_from: 
-                - legacy_bcrypt
+                - legacy
+
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
@@ -21,23 +29,19 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
             lazy: true
             provider: amreu_user_provider
 
-            guard:
-                authenticators:
-                    - amreu.login.form.authenticator
-                entry_point: amreu.login.form.authenticator
-                
-            form_login:
-                login_path: user_security_login_check
-                check_path: user_security_login_check
+            custom_authenticators:
+                    - amreu.login.form.passportauthenticator
+            entry_point: amreu.login.form.passportauthenticator
                 
             logout:
                 path: user_security_logout
-                # where to redirect after logout
-                # target: app_any_route
+
+            remember_me:
+                secret: "%kernel.secret%"
+                lifetime: 2592000
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -49,7 +53,6 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/login$, roles: PUBLIC_ACCESS }
-        - { path: ^/, roles: PUBLIC_ACCESS }
-        # - { path: ^/, roles: ROLE_USER }
-        # - { path: ^/[es|eu]/admin, roles: ROLE_ADMIN }
+        - { path: ^/[es|eu]/admin, roles: ROLE_ADMIN }
+        - { path: ^/, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }

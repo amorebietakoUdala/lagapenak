@@ -1,0 +1,26 @@
+<header class="d-flex mb-2 justify-content-between">
+	<div><a href="{{ path('app_home') }}"><img class="logo" alt="Udaletxearen logoa" src="{{ asset('build/images/logo.jpg') }}"></a></div>
+	<div class="ml-auto mr-auto">
+		<h1>{{ "messages.appTitle" | trans({},'messages') }}</h1>
+	</div>
+	{% if is_granted('ROLE_USER') %}
+		<div id="span-erabiltzailea" class="ml-auto mr-2">
+			<div class="dropdown">
+				<a class="dropdown-toggle" id="perfil_menua" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="user">{{ app.user.username }}</span>
+					<img class="dropdown dropdown-toggle avatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="Erabiltzailea" src="{{ asset('build/images/default-avatar.png') }}">
+				</a>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="perfil_menua">
+					<a class="dropdown-item" href="{{ path('user_security_logout') }}">{{ "link.logout" | trans | capitalize }}</a>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	<div {{ stimulus_controller('locale', {
+      'locale' : app.request.locale|split('_')[0]
+   }) }} id="hizkuntza" class="text-black padding-top-18 ml-1 mr-1" >
+		<a id="js-locale-es" href="#" data-action="click->locale#changeLocale">es</a>
+		/
+		<a id="js-locale-eu" href="#" data-action="click->locale#changeLocale">eu</a>
+	</div>
+</header>

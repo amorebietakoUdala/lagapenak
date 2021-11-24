@@ -1,0 +1,16 @@
+{% trans_default_domain 'alerts' %}
+
+<template id="confirmation-template">
+	<swal-title>
+		{{ 'message.confirmationTitle' | trans }}
+	</swal-title>
+	<swal-icon type="question" color="grey"></swal-icon>
+	<swal-html></swal-html>
+	<swal-button type="confirm">
+		{{ 'btn.accept' | trans }}
+	</swal-button>
+	<swal-button type="cancel">
+		{{ 'btn.cancel' | trans }}
+	</swal-button>
+	<swal-param name="allowEscapeKey" value="false"/>
+</template>

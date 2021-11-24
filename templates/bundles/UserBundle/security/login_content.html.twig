@@ -1,7 +1,7 @@
 {% trans_default_domain 'user_bundle' %}
 
 {% block user_content %}
-    <div class="container margin-top-13">
+    <div class="container mt-1">
 	<div class="col">
 	    <div class="container col-lg-5 col-md-5 p-3 border border-info rounded bg-light">
             <form action="{{ path("user_security_login_check") }}" method="post">
@@ -19,9 +19,14 @@
                 </div>
 
                 <div class="container-fluid row">
-                <div class="container-fuild col text-center">
-                    <button type="submit" class="btn btn-primary">{{ 'btn.security.login.submit'| trans | capitalize}}</button>
+                    <div class="checkbox mb-3">
+                        <input type="checkbox" name="_remember_me">&nbsp;{{ 'security.login.remember_me' | trans }}
+                    </div>
                 </div>
+                <div class="container-fluid row">
+                    <div class="container-fuild col text-center">
+                        <button type="submit" class="btn btn-primary">{{ 'btn.security.login.submit'| trans | capitalize}}</button>
+                    </div>
                 </div>
             </form>
 	    </div>

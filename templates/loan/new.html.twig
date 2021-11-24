@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.loan.new' | trans }}{% endblock %}
+
+{% block metas %}
+   <meta name="turbo-cache-control" content="no-preview">
+{% endblock %}
+
+{% block body %}
+
+<div class"container-fluid">
+   {{ include('loan/_form.html.twig') }}
+</div>
+{% endblock body %}

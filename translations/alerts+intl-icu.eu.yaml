@@ -1,0 +1,7 @@
+message.confirmationTitle: "Konfirma ezazu mesedez"
+message.deleteConfirmationDetail: "Ziur al zaude erabiltzailea ezabatu nahi duzula?"
+message.deleteConfirmationText: "Ziur al zaude lagapena ezabatu nahi duzula?"
+message.loanConfirmationText: "Ziur al zaude dokumentua lagatu nahi duzula?"
+message.returnConfirmationText: "Ziur al zaude dokumentua itzuli nahi duzula?"
+btn.accept: "Bai"
+btn.cancel: "Ez"

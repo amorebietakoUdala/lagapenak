@@ -1,10 +1,19 @@
 @import '~bootstrap';
 
+@import '@fortawesome/fontawesome-free';
+
 body {
+    font-size: 0.9rem;
     padding: 0.1em 0.1em 0.1em 0.1em;
     line-height: 1;
     margin-bottom: 2.5rem;
 }
+
+/*
+[data-turbo-preview] body {
+    opacity: .2;
+}
+*/
 
 header {
     display: grid;
@@ -33,6 +42,28 @@ main {
     float: right;
     height: 3rem;
     border-radius: 3rem;
+}
+
+.fixed-bottom-right {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+}
+
+.modal-body button {
+    display: none;
+}
+
+.modal-body a.btn {
+    display: none;
+}
+
+.modal-body div#archiver_fields {
+    display: none;
+}
+
+a.icon:hover {
+    text-decoration: none;
 }
 
 @media (max-width: 767px) {

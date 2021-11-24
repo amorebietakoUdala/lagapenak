@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'title.loan.show' | trans}}{% endblock %}
+
+{% block body %}
+    <div class="d-flex flex-row justify-content-middle" {{ stimulus_controller('loan-action')}}>
+        <h1>{{ 'title.loan.edit' | trans }}</h1>&nbsp;
+        {% if loan is defined %}
+            {{ include('loan/_delete_form.html.twig') }}
+        {% endif %}
+    </div>
+
+    {{ include('loan/_form.html.twig',{
+        'readonly': readonly
+    }) }}
+    {{ include('common/_alert.html.twig') }}
+{% endblock %}

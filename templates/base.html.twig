@@ -2,6 +2,7 @@
 <html lang="{{ app.request.locale|split('_')[0] }}">
     <head>
         <meta charset="UTF-8">
+        {% block metas %}{% endblock %}
         <link rel="icon" href="{{ asset('build/images/favicon.ico') }}">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
@@ -12,14 +13,16 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body data-turbo="false">
 		{% block header %}
-			{{ include('common/header.html.twig') }}
+			{{ include('common/_header.html.twig') }}
 		{% endblock header %}
 		{% block menu %}
-			{{ include('common/menu.html.twig') }}
+			{{ include('common/_menu.html.twig') }}
 		{% endblock %}
-		{% block message %}{% endblock message %}
-      {% block body %}{% endblock %}
+		{% block message %}
+            {{ include('common/_messages.html.twig') }}
+        {% endblock message %}
+        {% block body %}{% endblock %}
     </body>
 </html>

@@ -1,0 +1,7 @@
+message.confirmationTitle: "Confirme, por favor"
+message.deleteConfirmationDetail: "¿Está seguro de que desea eliminar el usuario?"
+message.deleteConfirmationText: "¿Está seguro de que desea eliminar el préstamo?"
+message.loanConfirmationText: "¿Está seguro de que desea prestar el documento?"
+message.returnConfirmationText: "¿Está seguro de que desea devolver el documento?"
+btn.accept: "Aceptar"
+btn.cancel: "Cancelar"

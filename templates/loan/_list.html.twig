@@ -1,0 +1,69 @@
+<div class="container-fluid" {{ stimulus_controller('list loan-action')}}>
+{% if loans is defined and loans|length > 0 %}
+      {{ include('loan/_loan_action_form.html.twig') }}
+      {{ include('common/_alert.html.twig') }}
+      <table id="taula" data-list-target="table"> 
+      <thead>
+            <tr>
+               <th>{{ 'loan.id' | trans }}</th>
+               <th>{{ 'loan.description' | trans }}</th>
+               <th>{{ 'loan.date' | trans }}</th>
+               {% if is_granted('ROLE_ARCHIVER') %}
+                  <th>{{ 'loan.askedBy' | trans }}</th>
+               {% endif %}
+                  <th>{{ 'loan.signature' | trans }}</th>
+                  <th>{{ 'loan.dateOfLoan' | trans }}</th>
+                  <th>{{ 'loan.dateOfReturn' | trans }}</th>
+               <th>{{ 'loan.note' | trans }}</th>
+               <th>{{ 'options' | trans }}</th>
+            </tr>
+      </thead>
+      <tbody>
+      {% for loan in loans %}
+         <tr>
+            <td>{{ loan.id }}</td>
+            <td>{{ loan.description }}</td>
+            <td>{{ loan.date ? loan.date | date('Y-m-d') : '' }}</td>
+            {% if is_granted('ROLE_ARCHIVER') %}
+               <td>{{ loan.askedBy }}</td>
+            {% endif %}
+               <td>{{ loan.signature }}</td>
+               <td>{{ loan.dateOfLoan ? loan.dateOfLoan | date('Y-m-d') : '' }}</td>
+               <td>{{ loan.dateOfReturn ? loan.dateOfReturn | date('Y-m-d') : '' }}</td>
+            <td>{{ loan.note }}</td>
+            <td>
+               <a class="icon" href="{{ path ("loan_show",{'id': loan.id })}}">
+                  <i class="fas fa-eye"></i>
+               </a>
+            {% if is_granted('ROLE_ARCHIVER') %}
+                  &nbsp;<a  class="icon" href="{{ path ("loan_edit",{'id': loan.id })}}">
+                  <i class="fas fa-edit"></i>
+               </a>
+                  {% if loan.dateOfLoan is null %}
+                     &nbsp;<a href="#" class="icon" title="{{ 'btn.send' | trans }}" 
+                        data-url="{{ path ("loan_send",{'id': loan.id })}}" 
+                        data-csrf_token="{{ csrf_token('send' ~ loan.id) }}" 
+                        data-action="loan-action#loanConfirmation">
+                        <i class="fas fa-paper-plane"></i>
+                     </a>
+                  {% endif %}
+                  {% if loan.dateOfReturn is null %}               
+                     &nbsp;<a class="icon" href="#" title="{{ 'btn.returned' | trans }}" 
+                        data-url="{{ path ("loan_return",{'id': loan.id })}}" 
+                        data-csrf_token="{{ csrf_token('return' ~ loan.id) }}" 
+                        data-action="loan-action#returnConfirmation">
+                        <i class="fas fa-reply"></i>
+                     </a>
+                  {% endif %}
+            {% endif %}               
+            </td>
+         </tr>
+      {% endfor %}
+      </tbody>
+      </table>
+{% else %}
+   <div class="container alert alert-info m-2 text-center">
+      {{'message.no_records' | trans }}
+   </div>
+{% endif %}
+   </div>

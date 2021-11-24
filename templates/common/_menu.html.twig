@@ -1,0 +1,45 @@
+{% if app.user %}
+
+	<nav class="navbar navbar-expand navbar-dark bg-dark mb-1">
+		<a class="navbar-brand" href="#">&nbsp;</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class='nav-item'>
+					<a class="nav-link {{ ( app.request.attributes.get('_route') == 'loan_new' ) ? 'active': '' }}" href="{{ path ('loan_new')}}">{{"navitem.loanNew" | trans | capitalize}}</a>
+				</li>
+				<li class='nav-item'>
+					<a class="nav-link {{ ( app.request.attributes.get('_route') == 'loan_index' ) ? 'active': '' }}" href="{{ path ('loan_index')}}">
+						{% if is_granted('ROLE_ARCHIVER') %}
+							{{"navitem.loanIndex" | trans | capitalize}}
+						{% else %}
+							{{"navitem.myLoans" | trans | capitalize}}
+						{% endif %}
+					</a>
+				</li>
+
+            {% if is_granted('ROLE_ADMIN') %}            
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle
+                  {% if (    app.request.attributes.get('_route') == 'admin_user_list' or
+                             app.request.attributes.get('_route') == 'department_index'
+                        )
+                  %}
+                     {{' active '}}
+                  {% endif %}
+               " href="#" id="navbarAdministration" role="button" data-toggle="dropdown" aria-expanded="false">
+						{{ 'navitem.administration' | trans | capitalize }}
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarAdministration">
+						<li><a class="dropdown-item" href="{{path('admin_user_list')}}">{{"navitem.users" | trans | capitalize}}</a></li>
+					</ul>					
+				</li>
+            {% endif %}
+			</ul>
+		</div>
+	</nav>
+
+{% endif %}

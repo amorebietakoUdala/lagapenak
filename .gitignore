@@ -21,3 +21,10 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+/sql/users.sql
+
+###> willdurand/js-translation-bundle ###
+# No need to save in git
+/public/translations/
+###> willdurand/js-translation-bundle ###

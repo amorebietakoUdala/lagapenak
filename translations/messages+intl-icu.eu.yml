@@ -1,12 +1,58 @@
-messages.appTitle: "DIR3 zerrendaren bilaketa"
+# Titles
+messages.appTitle: "Espedienteen lagapena"
 
-title.office.search: "DIR3 bulego bilaketa"
+title.loan.search: "Lagapenen bilaketa"
+title.loan.show: "Lagapena ikusi"
+title.loan.edit: "Lagapenak editatu"
+modal.title.loanNew: "Espedientea eskatu"
 
-office.code: "Kodea"
-office.description: "Denominazioa"
-office.unitCode: "Unitate kodea"
-office.unitDescription: "Unitate denominazioa"
+# Menu Items
+link.logout: "Irten"
+navitem.loanNew: "Espedientea eskatu"
+navitem.loanIndex: "Lagatutako espedienteak"
+navitem.administration: "Administrazioa"
+navitem.users: "Erabiltzaileak"
+navitem.myLoans: "Nik eskatutako espedienteak"
 
+# Entities
+loan.id: "Id"
+loan.description: "Denominazioa edo esp. zb."
+loan.date: "Eskaera data"
+loan.askedBy: "Nork eskatua"
+loan.signature: "Signatura"
+loan.dateOfLoan: "Lagapen data"
+loan.dateOfReturn: "Itzultze data"
+loan.note: "Oharra"
+
+# Forms
+loanSearch.fromDate: "Eskatua noiztik"
+loanSearch.toDate: "Nora"
+loanSearch.fromDateOfLoan: "Lagapena noiztik"
+loanSearch.toDateOfLoan: "Nora"
+loanSearch.fromDateOfReturn: "Itzulketa noiztik"
+loanSearch.toDateOfReturn: "Nora"
+loanSearch.asked: "Eskatua"
+loanSearch.loaned: "Lagatua"
+loanSearch.returned: "Itzulia"
+loanSearch.status: "Egoera"
+loanSearch.askedBy: "Nork eskatua"
+loanSearch.signature: "Signatura"
+option.selectStatus: "Egoera bat hautatu" 
+placeholder.askedBy: "Eskatzaile bat hautatu"
+
+# Buttons
 btn.search: "Bilatu"
+btn.cancel: "Itzuli"
+btn.save: "Gorde"
+btn.loanNew: "Eskatu"
+btn.send: "Lagatu"
+btn.returned: "Itzulia"
+btn.delete: "Ezabatu"
+btn.new: "Berria"
+options: "Aukerak"
 
+# Messages
 message.no_records: "Ez da emaitzarik aurkitu"
+message.loan.saved: "Aldaketak behar bezala gorde dira"
+message.csrfInvalid: "CSRF tokena ez da zuzena"
+link.editLoan: "Xehetasunak ikusi"

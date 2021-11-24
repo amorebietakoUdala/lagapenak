@@ -11,7 +11,23 @@ import './styles/app.css';
 // start the Stimulus application
 import './bootstrap';
 
-import 'bootstrap';
 import '@popperjs/core';
+import 'bootstrap';
+
+import '@fortawesome/fontawesome-free';
 
 global.app_base = '/';
+global.locale = $('html').attr("lang");
+
+import { Modal } from 'bootstrap';
+
+document.addEventListener('turbo:before-cache', () => {
+   if (document.body.classList.contains('modal-open')) {
+       const modalEl = document.querySelector('.modal');
+       const modal = Modal.getInstance(modalEl);
+       modalEl.classList.remove('fade');
+       modal._backdrop._config.isAnimated = false;
+       modal.hide();
+       modal.dispose();
+   }
+});

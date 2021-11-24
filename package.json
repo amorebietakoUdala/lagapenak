@@ -1,16 +1,24 @@
 {
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
+        "@hotwired/turbo": "^7.0.0-beta.5",
         "@popperjs/core": "^2.9.2",
         "@symfony/stimulus-bridge": "^2.0.0",
+        "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/Resources/assets",
         "@symfony/webpack-encore": "^1.0.0",
-        "bootstrap": "5.0.*",
+        "bazinga-translator": "^4.0.2",
+        "bootstrap": "^4",
+        "bootstrap-datepicker": "^1.9.0",
         "bootstrap-table": "^1.18.3",
         "core-js": "^3.0.0",
         "file-loader": "^6.0.0",
+        "intl-messageformat": "^9.9.6",
         "jquery": "^3.6.0",
+        "popper.js": "^1.16.1",
         "regenerator-runtime": "^0.13.2",
+        "select2": "^4.1.0-rc.0",
         "stimulus": "^2.0.0",
+        "stimulus-use": "^0.41.0",
         "tableexport.jquery.plugin": "^1.20.1",
         "webpack-notifier": "^1.6.0"
     },
@@ -22,5 +30,7 @@
         "watch": "encore dev --watch",
         "build": "encore production --progress"
     },
-    "dependencies": {}
+    "dependencies": {
+        "sweetalert2": "^11.2.0"
+    }
 }

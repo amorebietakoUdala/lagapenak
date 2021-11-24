@@ -1,12 +1,58 @@
-messages.appTitle: "Consulta directorio DIR3"
+# Titles
+messages.appTitle: "Préstamo de expedientes"
 
-title.office.search: "Busqueda de oficinas DIR3"
+title.loan.search: "Busqueda de préstamos"
+title.loan.show: "Ver préstamo"
+title.loan.edit: "Editar préstamo"
+modal.title.loanNew: "Solicitar expediente"
 
-office.code: "Código"
-office.description: "Denominación"
-office.unitCode: "Código de Unidad"
-office.unitDescription: "Denominación de Unidad"
+# Menu Items
+link.logout: "Salir"
+navitem.loanNew: "Solicitar expediente"
+navitem.loanIndex: "Expedientes Cedidos"
+navitem.administration: "Administración"
+navitem.users: "Usuarios"
+navitem.myLoans: "Expedientes solicitados por mí"
 
+# Entities
+loan.id: "Id"
+loan.description: "Denominación o núm. exp."
+loan.date: "Fecha de solicitud"
+loan.askedBy: "Solicidado por"
+loan.signature: "Signatura"
+loan.dateOfLoan: "Fecha de préstamo"
+loan.dateOfReturn: "Fecha de devolución"
+loan.note: "Nota"
+
+# Forms
+loanSearch.fromDate: "Solicitud desde"
+loanSearch.toDate: "Hasta"
+loanSearch.fromDateOfLoan: "Préstamo desde"
+loanSearch.toDateOfLoan: "Hasta"
+loanSearch.fromDateOfReturn: "Devolución desde"
+loanSearch.toDateOfReturn: "Hasta"
+loanSearch.asked: "Pedido"
+loanSearch.loaned: "Prestado"
+loanSearch.returned: "Devuelto"
+loanSearch.status: "Estado"
+loanSearch.askedBy: "Solicitado por"
+loanSearch.signature: "Signatura"
+option.selectStatus: "Selecciona un estado" 
+placeholder.askedBy: "Selecciona un solicitante"
+
+# Buttons
 btn.search: "Buscar"
+btn.cancel: "Volver"
+btn.save: "Guardar"
+btn.loanNew: "Solicitar"
+btn.send: "Prestar"
+btn.returned: "Devuelto"
+btn.delete: "Borrar"
+btn.new: "Nuevo"
+options: "Opciones"
 
+# Messages
 message.no_records: "No se han encontrado resultados"
+message.loan.saved: "Los cambios se han guardado correctamente"
+message.csrfInvalid: "Token CSRF inválido"
+link.editLoan: "Ver detalles"

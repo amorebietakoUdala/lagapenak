@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.loan.search' | trans }}{% endblock %}
+
+{% block body %}
+    {% if is_granted('ROLE_ARCHIVER') %}
+        {{ include('loan/searchFilter.html.twig', {
+            filter: filter
+        }) }} 
+    {% endif %}
+    <div {{ stimulus_controller('reload-content', {
+                    url: path('loan_index', { ajax: 1 })
+                }) }}>
+        <div class="container-fluid" {{ stimulus_controller('modal-form', {
+                formUrl: path('loan_new')
+            }) }}  data-action="modal-form:success->reload-content#refreshContent loan-action:success->reload-content#refreshContent">
+            <div class="mt-4">
+                <div data-reload-content-target="content">
+                    {{ include('loan/_list.html.twig') }}
+                </div>
+                <div class="float-right mb-1">
+                    <a class="btn btn-primary rounded-circle fixed-bottom-right" data-action="modal-form#openModal">
+                       <i class="fas fa-plus" title='{{ "btn.new" | trans | capitalize }}'></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                {{ include('common/_modal.html.twig', {
+                    modalTitle: 'modal.title.loanNew' | trans,
+                }) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

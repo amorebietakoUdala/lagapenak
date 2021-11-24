@@ -61,8 +61,48 @@ class User extends BaseUser implements AMREUserInterface, PasswordAuthenticatedU
      */
     protected $lastLogin;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Loan::class, mappedBy="askedBy")
+     */
+    private $loans;
+
+    public function __construct()
+    {
+        $this->loans = new ArrayCollection();
+    }
+
     public function __toString()
     {
         return $this->username;
+    }
+
+    /**
+     * @return Collection|Loan[]
+     */
+    public function getLoans(): Collection
+    {
+        return $this->loans;
+    }
+
+    public function addLoan(Loan $loan): self
+    {
+        if (!$this->loans->contains($loan)) {
+            $this->loans[] = $loan;
+            $loan->setAskedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLoan(Loan $loan): self
+    {
+        if ($this->loans->removeElement($loan)) {
+            // set the owning side to null (unless already changed)
+            if ($loan->getAskedBy() === $this) {
+                $loan->setAskedBy(null);
+            }
+        }
+
+        return $this;
     }
 }
