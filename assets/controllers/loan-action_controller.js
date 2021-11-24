@@ -17,7 +17,7 @@ export default class extends Controller {
     async deleteConfirmation(event) {
         event.preventDefault();
         const confirmationText=Translator.trans('message.deleteConfirmationText');
-        this.submit(confirmationText);
+        this.submit(confirmationText, event.currentTarget.dataset.return_url);
     }
 
     async loanConfirmation(event) {
@@ -38,7 +38,7 @@ export default class extends Controller {
         this.submit(confirmationText);
     }
 
-    async submit(confirmationText) {
+    async submit(confirmationText, returnUrl = null) {
         const Swal = await import ('sweetalert2');
         Swal.default.fire({
             template: '#confirmation-template',
@@ -53,6 +53,9 @@ export default class extends Controller {
                         data: $form.serialize(),
                     });
                     this.dispatch('success');
+                    if (null !== returnUrl) {
+                        document.location.href=returnUrl;
+                    }
                 } catch (e) {
                     Swal.default.fire('There was an error!!!: ' + e.responseText);
                 }        
