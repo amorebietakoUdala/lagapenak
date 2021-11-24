@@ -56,3 +56,10 @@ message.no_records: "No se han encontrado resultados"
 message.loan.saved: "Los cambios se han guardado correctamente"
 message.csrfInvalid: "Token CSRF inválido"
 link.editLoan: "Ver detalles"
+
+# User administration
+user_deactivated: El usuario está desactivado
+user_not_found: El usuario y contraseña no son correctos
+user_exists: El usuario ya existe
+user_saved: El usuario se ha guardado correctamente
+user_deleted: El usuario se ha borrado correctamente

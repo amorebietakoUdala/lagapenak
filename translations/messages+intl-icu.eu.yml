@@ -56,3 +56,10 @@ message.no_records: "Ez da emaitzarik aurkitu"
 message.loan.saved: "Aldaketak behar bezala gorde dira"
 message.csrfInvalid: "CSRF tokena ez da zuzena"
 link.editLoan: "Xehetasunak ikusi"
+
+# User administration
+user_deactivated: Erabiltzailea desgaituta dago
+user_not_found: Erabiltzailea eta pasahitza ez dira zuzenak
+user_exists: Erabiltzailea existitzen da dagoeneko
+user_saved: Erabiltzailea gorde egin da.
+user_deleted: Erabiltzailea behar bezala ezabatu da.
