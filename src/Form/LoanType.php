@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class LoanType extends AbstractType
@@ -21,12 +22,20 @@ class LoanType extends AbstractType
             ->add('description', TextType::class, [
                 'constraints' => [
                     new NotBlank(),
+                    new Length([
+                        'max' => 255,
+                    ])
                 ],
                 'disabled' => $readonly,
                 'label' => 'loan.description',
             ])->add('note',TextareaType::class,[
                 'disabled' => $readonly,
                 'label' => 'loan.note',
+                'constraints' => [
+                    new Length([
+                        'max' => 1024,
+                    ])
+                ],
             ]);
             if ( in_array('ROLE_ARCHIVER', $roles) || in_array('ROLE_ADMIN', $roles) ) {
                 $builder
