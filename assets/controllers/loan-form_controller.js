@@ -1,9 +1,9 @@
-import { Controller } from 'stimulus';
+import { Controller } from '@hotwired/stimulus';
 
 import '../js/common/datepicker';
 import '../js/common/select2';
 
-import $ from 'jquery';
+//import $ from 'jquery';
 
 export default class extends Controller {
     static targets = [];

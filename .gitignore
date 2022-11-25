@@ -28,3 +28,5 @@ yarn-error.log
 # No need to save in git
 /public/translations/
 ###> willdurand/js-translation-bundle ###
+
+/.yarn/

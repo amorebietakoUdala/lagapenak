@@ -14,7 +14,7 @@ import './bootstrap';
 import '@popperjs/core';
 import 'bootstrap';
 
-import '@fortawesome/fontawesome-free';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 global.app_base = '/';
 global.locale = $('html').attr("lang");

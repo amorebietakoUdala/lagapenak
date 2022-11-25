@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus';
+import { Controller } from '@hotwired/stimulus';
 import { useDispatch } from 'stimulus-use';
 import Translator from 'bazinga-translator';
 const translations = require('../../public/translations/'+Translator.locale+'.json');

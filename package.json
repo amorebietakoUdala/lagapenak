@@ -1,26 +1,28 @@
 {
     "devDependencies": {
+        "@babel/core": "^7.20.2",
+        "@babel/preset-env": "^7.20.2",
         "@fortawesome/fontawesome-free": "^5.15.4",
-        "@hotwired/turbo": "^7.0.0-beta.5",
+        "@hotwired/stimulus": "^3.0.0",
+        "@hotwired/turbo": "^7.0.1",
         "@popperjs/core": "^2.9.2",
-        "@symfony/stimulus-bridge": "^2.0.0",
+        "@symfony/stimulus-bridge": "^3.1.1",
         "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/Resources/assets",
-        "@symfony/webpack-encore": "^1.0.0",
+        "@symfony/webpack-encore": "^4.1.2",
         "bazinga-translator": "^4.0.2",
         "bootstrap": "^4",
         "bootstrap-datepicker": "^1.9.0",
-        "bootstrap-table": "^1.18.3",
         "core-js": "^3.0.0",
         "file-loader": "^6.0.0",
         "intl-messageformat": "^9.9.6",
-        "jquery": "^3.6.0",
+        "jquery": "3.6.1",
         "popper.js": "^1.16.1",
         "regenerator-runtime": "^0.13.2",
         "select2": "^4.1.0-rc.0",
-        "stimulus": "^2.0.0",
-        "stimulus-use": "^0.41.0",
-        "tableexport.jquery.plugin": "^1.20.1",
-        "webpack-notifier": "^1.6.0"
+        "stimulus-use": "^0.51.1",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^4.9.2",
+        "webpack-notifier": "^1.15.0"
     },
     "license": "UNLICENSED",
     "private": true,
@@ -31,6 +33,11 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "sweetalert2": "^11.2.0"
+        "bootstrap-table": "^1.21.1",
+        "sweetalert2": "^11.2.0",
+        "tableexport.jquery.plugin": "^1.26.0"
+    },
+    "resolutions": {
+        "jquery": "3.6.1"
     }
 }

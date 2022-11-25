@@ -1,4 +1,5 @@
-import { Controller } from 'stimulus';
+import { Controller } from '@hotwired/stimulus';
+import { Dropdown } from 'bootstrap';
 import '../js/common/list';
 
 export default class extends Controller {
@@ -11,6 +12,11 @@ export default class extends Controller {
          $(this.tableTarget).bootstrapTable({
             cache: false,
             showExport: true,
+            iconsPrefix: 'fa',
+            icons: {
+               columns: 'fa-th-list',
+               export: 'fa-download',
+            },
             exportTypes: ['excel'],
             exportDataType: 'all',
             exportOptions: {
@@ -35,6 +41,8 @@ export default class extends Controller {
                });
             });
          });
+         // To fix an issue with columns toggle list
+         $('btn btn-secondary dropdown-toggle').data( "toggle", "dropdown" );
       }
     }
 }
