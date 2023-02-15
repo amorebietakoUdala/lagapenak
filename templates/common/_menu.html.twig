@@ -24,7 +24,7 @@
             {% if is_granted('ROLE_ADMIN') %}            
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle
-                  {% if (    app.request.attributes.get('_route') == 'admin_user_list' or
+                  {% if (    app.request.attributes.get('_route') == 'admin_user_index' or
                              app.request.attributes.get('_route') == 'department_index'
                         )
                   %}
@@ -34,7 +34,7 @@
 						{{ 'navitem.administration' | trans | capitalize }}
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarAdministration">
-						<li><a class="dropdown-item" href="{{path('admin_user_list')}}">{{"navitem.users" | trans | capitalize}}</a></li>
+						<li><a class="dropdown-item" href="{{path('admin_user_index')}}">{{"navitem.users" | trans | capitalize}}</a></li>
 					</ul>					
 				</li>
             {% endif %}

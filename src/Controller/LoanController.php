@@ -6,6 +6,7 @@ use App\Entity\Loan;
 use App\Form\LoanSearchType;
 use App\Form\LoanType;
 use DateTime;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,11 +18,13 @@ use Symfony\Component\Mime\Email;
 class LoanController extends AbstractController
 {
 
-    private $mailer = null;
+    private MailerInterface $mailer;
+    private EntityManagerInterface $em;
 
-    public function __construct(MailerInterface $mailer)
+    public function __construct(MailerInterface $mailer, EntityManagerInterface $em)
     {
         $this->mailer = $mailer;
+        $this->em = $em;
     }
 
     /**
@@ -40,9 +43,8 @@ class LoanController extends AbstractController
             $data = $form->getData();
             $data->setDate(new DateTime());
             $data->setAskedBy($this->getUser());
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($data);
-            $em->flush();
+            $this->em->persist($data);
+            $this->em->flush();
             $html = $this->renderView('loan/askedLoanMail.html.twig', [
                 'loan' => $loan
             ]);
@@ -95,9 +97,8 @@ class LoanController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var Loan $data */
             $data = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($data);
-            $em->flush();
+            $this->em->persist($data);
+            $this->em->flush();
             $this->addFlash('success','message.loan.saved');
             if ($previousDateOfReturn === null && $data->getDateOfReturn() !== null ) {
                 $html = $this->renderView('loan/returnedLoanMail.html.twig', [
@@ -124,9 +125,8 @@ class LoanController extends AbstractController
     public function delete(Request $request, Loan $loan): Response
     {
         if ($this->isCsrfTokenValid('delete'.$loan->getId(), $request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($loan);
-            $entityManager->flush();
+            $this->em->remove($loan);
+            $this->em->flush();
             return $this->redirectToRoute('loan_index');
         }
 
@@ -139,10 +139,9 @@ class LoanController extends AbstractController
     public function send(Request $request, Loan $loan): Response
     {
         if ($this->isCsrfTokenValid('send'.$loan->getId(), $request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
             $loan->setDateOfLoan(new \DateTime());
-            $entityManager->persist($loan);
-            $entityManager->flush();
+            $this->em->persist($loan);
+            $this->em->flush();
             return $this->redirectToRoute('loan_index');
         }
 
@@ -155,10 +154,9 @@ class LoanController extends AbstractController
     public function return(Request $request, Loan $loan): Response
     {
         if ($this->isCsrfTokenValid('return'.$loan->getId(), $request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
             $loan->setDateOfReturn(new \DateTime());
-            $entityManager->persist($loan);
-            $entityManager->flush();
+            $this->em->persist($loan);
+            $this->em->flush();
             $html = $this->renderView('loan/returnedLoanMail.html.twig', [
                 'loan' => $loan
             ]);
@@ -176,13 +174,12 @@ class LoanController extends AbstractController
     public function index(Request $request): Response
     {
         $searchFilter = $this->createForm(LoanSearchType::class);
-        $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
 
         $searchFilter->handleRequest($request);
         if ($searchFilter->isSubmitted() && $searchFilter->isValid()) {
             $criteria = $searchFilter->getData();
-            $loans = $em->getRepository(Loan::class)->findLoansByCriteria($criteria);
+            $loans = $this->em->getRepository(Loan::class)->findLoansByCriteria($criteria);
 
             $template = $request->query->get('ajax') || $request->isXmlHttpRequest() ? '_list.html.twig' : 'index.html.twig';
 
@@ -193,13 +190,13 @@ class LoanController extends AbstractController
         }
 
         if ( in_array('ROLE_ARCHIVER', $user->getRoles()) || in_array('ROLE_ADMIN', $user->getRoles())) {
-            $loans = $em->getRepository(Loan::class)->findBy([
+            $loans = $this->em->getRepository(Loan::class)->findBy([
                 'dateOfReturn' => null,
             ],[
                 'date' => 'DESC'
             ]);
         } else {
-            $loans = $em->getRepository(Loan::class)->findBy([
+            $loans = $this->em->getRepository(Loan::class)->findBy([
                 'askedBy' => $user,
                 // If we wan't to return only, not returned loans, add this filter
                 // 'dateOfReturn' => null,
