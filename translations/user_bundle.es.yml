@@ -1,6 +1,6 @@
 # Roles
 ROLE_ARCHIVER: "Archivador"
 ROLE_ADMIN: "Administrador"
-ROLE_USER: "Usuario"
+ROLE_LAGAPENAK: "Usuario"
 
 security.login.remember_me: "Recordarme"

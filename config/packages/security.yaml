@@ -1,6 +1,7 @@
 security:
     role_hierarchy:
-        ROLE_ADMIN: ROLE_ARCHIVER
+        ROLE_ARCHIVER: [ROLE_LAGAPENAK]
+        ROLE_ADMIN: [ROLE_LAGAPENAK,ROLE_ARCHIVER]
 
     # https://symfony.com/doc/current/security/authenticator_manager.html
     enable_authenticator_manager: true
@@ -23,7 +24,7 @@ security:
             entity:
                 class: App\Entity\User
                 property: username
-        
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -54,8 +55,8 @@ security:
     access_control:
         - { path: ^/login$, roles: PUBLIC_ACCESS }
         - { path: ^/[es|eu]/admin, roles: ROLE_ADMIN }
-        - { path: ^/, roles: ROLE_USER }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/, roles: ROLE_LAGAPENAK }
+        # - { path: ^/profile, roles: ROLE_LAGAPENAK }
 
 when@test:
     security:

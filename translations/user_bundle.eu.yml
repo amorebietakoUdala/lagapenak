@@ -1,6 +1,6 @@
 # Roles
 ROLE_ARCHIVER: "Artxibatzailea"
 ROLE_ADMIN: "Administratzailea"
-ROLE_USER: "Erabiltzailea"
+ROLE_LAGAPENAK: "Erabiltzailea"
 
 security.login.remember_me: "Oroitu"
