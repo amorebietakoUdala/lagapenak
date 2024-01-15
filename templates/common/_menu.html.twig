@@ -2,7 +2,7 @@
 
 	<nav class="navbar navbar-expand navbar-dark bg-dark mb-1">
 		<a class="navbar-brand" href="#">&nbsp;</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
@@ -22,21 +22,14 @@
 				</li>
 
             {% if is_granted('ROLE_ADMIN') %}            
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle
-                  {% if (    app.request.attributes.get('_route') == 'admin_user_index' or
-                             app.request.attributes.get('_route') == 'department_index'
-                        )
-                  %}
-                     {{' active '}}
-                  {% endif %}
-               " href="#" id="navbarAdministration" role="button" data-toggle="dropdown" aria-expanded="false">
-						{{ 'navitem.administration' | trans | capitalize }}
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarAdministration">
-						<li><a class="dropdown-item" href="{{path('admin_user_index')}}">{{"navitem.users" | trans | capitalize}}</a></li>
-					</ul>					
-				</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarAdmin" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{ 'navitem.administration' | trans | capitalize }}
+						</a>
+						<div id="js-menu-administration" class="dropdown-menu" aria-labelledby="navbarAdmin">
+							<a class="dropdown-item" href="{{ path('admin_user_index') }}">{{"navitem.users" | trans | capitalize}}</a>
+						</div>
+					</li>
             {% endif %}
 			</ul>
 		</div>

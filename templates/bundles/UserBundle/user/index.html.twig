@@ -1,0 +1,19 @@
+{% extends "@User/layout.html.twig" %}
+{% trans_default_domain 'user_bundle' %}
+
+{% block title %}List Users{% endblock %}
+
+{% block menu %}
+    {{ include('common/_menu.html.twig') }}
+{% endblock %}
+
+{% block user_content %}
+    <main>
+		<div class="container-fluid">
+			{{ include('@User/user/_list.html.twig', {
+				'users': users,
+			})}}
+		</div>
+		{{ include('common/_alert.html.twig') }}
+    </main>
+{% endblock user_content %}

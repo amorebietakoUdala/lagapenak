@@ -58,6 +58,8 @@ message.no_records: "Ez da emaitzarik aurkitu"
 message.loan.saved: "Aldaketak behar bezala gorde dira"
 message.csrfInvalid: "CSRF tokena ez da zuzena"
 link.editLoan: "Xehetasunak ikusi"
+message.loanConfirmationText: "Ziur al zaude espedientea lagatu nahi duzula?"
+message.returnConfirmationText: "Ziur al zaude espedientea itzulia bezala ezarri nahi duzula?"
 
 # User administration
 user_deactivated: Erabiltzailea desgaituta dago

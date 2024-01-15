@@ -1,23 +1,18 @@
-<div class="modal" tabindex="-1" role="dialog" data-modal-form-target="modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">{{ modalTitle }}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<div class="modal" tabindex="-1" data-modal-form-target="modal">
+	<div class="modal-dialog {{ scrollable is defined and scrollable ? 'modal-dialog-scrollable': '' }} {{ size is defined and size == 'large' ? 'modal-lg': size is defined and size == 'extra-large' ? 'modal-xl' : '' }}">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" data-modal-form-target="modalTitle">{{ modalTitle }}</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+      <div class="modal-body" data-modal-form-target="modalBody" data-action="submit->modal-form#submitForm">
+          {{ modalContent|default('Loading...') }}
       </div>
-            <div
-                class="modal-body"
-                data-modal-form-target="modalBody"
-                data-action="submit->modal-form#submitForm"
-            >
-                {{ modalContent|default('Loading...') }}
-            </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'btn.cancel' | trans }}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">{{ 'btn.cancel' | trans }}</button>
         <button type="button" class="btn btn-primary" data-action="modal-form#submitForm">{{ 'btn.save' | trans }}</button>
       </div>            
     </div>
+  </div>
 </div>
 

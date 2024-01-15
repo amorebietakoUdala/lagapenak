@@ -2,11 +2,7 @@
 	{{ include('common/_messages.html.twig') }}
 {% endblock %}
 
-<div class="container-fluid" {{ stimulus_controller('loan-form', 
-	{ 
-		'locale': app.request.locale|split('_')[0], 
-	}) 
-}}>
+<div class="container-fluid">
 
 	{{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
 		<div class="row">
@@ -26,11 +22,11 @@
 			<div class="row">
 				<div class="col-lg-2">
 					{{ form_label(form.date) }}
-					{{ form_widget(form.date, {'attr': {'class': 'js-datepicker form-control form-control-sm'}}) }}
+					{{ form_widget(form.date, {'attr': {'class': 'form-control form-control-sm', 'data-controller' : 'datetimepicker', 'data-datetimepicker-format-value': 'yyyy-MM-dd'}}) }}
 				</div>
 				<div class="col-lg-2">
 					{{ form_label(form.askedBy) }}
-					{{ form_widget(form.askedBy, {'attr': {'class': 'js-askedBySelect form-control form-control-sm'}}) }}
+					{{ form_widget(form.askedBy, {'attr': {'class': 'form-select form-select-sm js-askedBySelect', 'data-controller' : 'select2'}}) }}
 				</div>
 				<div class="col-lg-2">
 					{{ form_label(form.signature) }}
@@ -40,23 +36,19 @@
 			<div class="row">
 				<div class="col-lg-2">
 					{{ form_label(form.dateOfLoan) }}
-					{{ form_widget(form.dateOfLoan, {'attr': {'class': 'js-datepicker form-control form-control-sm'}}) }}
+					{{ form_widget(form.dateOfLoan, {'attr': {'class': 'form-control form-control-sm', 'data-controller' : 'datetimepicker', 'data-datetimepicker-format-value': 'yyyy-MM-dd'}}) }}
 				</div>
 				<div class="col-lg-2">
 					{{ form_label(form.dateOfReturn) }}
-					{{ form_widget(form.dateOfReturn, {'attr': {'class': 'js-datepicker form-control form-control-sm'}}) }}
+					{{ form_widget(form.dateOfReturn, {'attr': {'class': 'form-control form-control-sm', 'data-controller' : 'datetimepicker', 'data-datetimepicker-format-value': 'yyyy-MM-dd'}}) }}
 				</div>
 			</div>
 		</div>
 	{% endif %}
 	<div id="buttons" class="mt-2"> 
-		<a class="btn btn-secondary" href="{{ path('loan_index') }}" formnovalidate>{{ 'btn.cancel' | trans }}</a>
+		<a href="{{ returnUrl is defined and not returnUrl is empty ? returnUrl : path('loan_index') }}" class="btn btn-secondary">{{ 'btn.cancel' | trans }}</a>
 		{% if not readonly %}
 			<button class="btn btn-primary"  formnovalidate>{{ 'btn.save' | trans }}</button>
-		{% endif %}
-		{% if is_granted('ROLE_ARCHIVER') %}
-			{# <button class="btn btn-secondary">{{ 'btn.send' | trans }}</button>
-			<button class="btn btn-secondary">{{ 'btn.returned' | trans }}</button> #}
 		{% endif %}
 	</div>
 		{{ form_widget(form._token) }}

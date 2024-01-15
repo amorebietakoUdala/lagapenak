@@ -54,14 +54,14 @@ class LoanRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('l');
         if ( $criteriaFrom ) {        
             foreach ( $criteriaFrom as $fromField => $value ) {
-                $fieldName = str_replace('fromD', 'd', $fromField);
+                $fieldName = str_replace('fromD', 'd', (string) $fromField);
                 $qb->andWhere('l.'.$fieldName.' >= :'.$fieldName)
                     ->setParameter($fieldName, $value);
             }
         }
         if ( $criteriaTo ) {        
             foreach ( $criteriaTo as $toField => $value ) {
-                $fieldName = str_replace('toD', 'd', $toField);
+                $fieldName = str_replace('toD', 'd', (string) $toField);
                 $qb->andWhere('l.'.$fieldName.' <= :'.$fieldName.'To')
                     ->setParameter($fieldName.'To', $value->add(new \DateInterval('P1D')));
             }

@@ -1,16 +1,41 @@
 {% trans_default_domain 'alerts' %}
 
-<template id="confirmation-template">
+<template id="confirm">
 	<swal-title>
-		{{ 'message.confirmationTitle' | trans }}
+		{{ title|default('message.confirmationTitle' | trans)  }}
 	</swal-title>
 	<swal-icon type="question" color="grey"></swal-icon>
-	<swal-html></swal-html>
+	<swal-html>{{ html|default('message.deletionConfirmationText' | trans) }}</swal-html>
 	<swal-button type="confirm">
-		{{ 'btn.accept' | trans }}
+		{{ btnAccept|default('btn.accept' | trans) }}
 	</swal-button>
 	<swal-button type="cancel">
-		{{ 'btn.cancel' | trans }}
+		{{ btnCancel|default('btn.cancel' | trans) }}
 	</swal-button>
 	<swal-param name="allowEscapeKey" value="false"/>
+	<swal-param name="customClass" value='{ "popup": "my-popup" }'/>
+</template>
+
+<template id="error">
+	<swal-title>
+		{{ error|default('message.error' | trans) }}
+	</swal-title>
+	<swal-icon type="error" color="red"></swal-icon>
+   <swal-html>Loading...</swal-html>
+	<swal-button type="confirm">
+		{{ btnOk|default('btn.ok' | trans) }}
+	</swal-button>
+	<swal-param name="allowEscapeKey" value="true"/>
+</template>
+
+<template id="error-html">
+	<swal-title>
+		{{ error|default('message.error' | trans) }}
+	</swal-title>
+	<swal-icon type="error" color="red"></swal-icon>
+   <swal-html>{{ html | default('message.deletionConfirmationText' | trans) }}</swal-html>
+	<swal-button type="confirm">
+		{{ btnOk|default('btn.ok' | trans) }}
+	</swal-button>
+	<swal-param name="allowEscapeKey" value="true"/>
 </template>

@@ -1,8 +1,16 @@
-<div class="container-fluid" {{ stimulus_controller('list loan-action')}}>
+<div class="container-fluid">
 {% if loans is defined and loans|length > 0 %}
-      {{ include('loan/_loan_action_form.html.twig') }}
-      {{ include('common/_alert.html.twig') }}
-      <table id="taula" data-list-target="table"> 
+   {{ include('loan/_loan_action_form.html.twig') }}
+   {{ include('common/_alert.html.twig') }}
+   <table id="taula" class="table bootstrap-table mt-3"
+      {{ stimulus_controller('table', { 
+         'url': path('admin_user_index'),
+         'exportName': 'users',
+      }) }}
+      data-page-number="{{ page }}" 
+      data-page-size="{{ pageSize }}"
+      data-page-sortName="{{ sortName }}"
+      data-page-sortOrder="{{ sortOrder }}"> 
       <thead>
             <tr>
                <th>{{ 'loan.id' | trans }}</th>
@@ -32,35 +40,40 @@
                <td>{{ loan.dateOfReturn ? loan.dateOfReturn | date('Y-m-d') : '' }}</td>
             <td>{{ loan.note }}</td>
             <td>
-               <a class="icon" href="{{ path ("loan_show",{'id': loan.id })}}">
+               <a class="icon" href="{{ path ("loan_show",{'id': loan.id })}}" data-action="click->table#onClick" data-pagination="false">
                   <i class="fas fa-eye"></i>
                </a>
             {% if is_granted('ROLE_ARCHIVER') %}
-                  &nbsp;<a  class="icon" href="{{ path ("loan_edit",{'id': loan.id })}}">
+                  &nbsp;<a  class="icon" href="{{ path ("loan_edit",{'id': loan.id })}}" data-action="click->table#onClick" data-pagination="false">
                   <i class="fas fa-edit"></i>
                </a>
-                  {% if loan.dateOfLoan is null %}
-                     &nbsp;<a href="#" class="icon" title="{{ 'btn.send' | trans }}" 
-                        data-url="{{ path ("loan_send",{'id': loan.id })}}" 
-                        data-csrf_token="{{ csrf_token('send' ~ loan.id) }}" 
-                        data-action="loan-action#loanConfirmation">
-                        <i class="fas fa-paper-plane"></i>
-                     </a>
-                  {% endif %}
-                  {% if loan.dateOfReturn is null %}               
-                     &nbsp;<a class="icon" href="#" title="{{ 'btn.returned' | trans }}" 
-                        data-url="{{ path ("loan_return",{'id': loan.id })}}" 
-                        data-csrf_token="{{ csrf_token('return' ~ loan.id) }}" 
-                        data-action="loan-action#returnConfirmation">
-                        <i class="fas fa-reply"></i>
-                     </a>
-                  {% endif %}
+               {% if loan.dateOfLoan is null %}
+                  &nbsp;<a href="{{ path ("loan_send",{'id': loan.id, '_token' : csrf_token('send' ~ loan.id) })}}" class="icon" title="{{ 'btn.send' | trans }}"  
+                        data-action="click->table#onClick"
+                        data-pagination="true" 
+                        data-confirm="true"
+                        data-confirm_text="{{ 'message.loanConfirmationText' | trans }}"
+                        data-return="false">
+                     <i class="fas fa-paper-plane"></i>
+                  </a>
+               {% endif %}
+               {% if loan.dateOfReturn is null %}               
+                  &nbsp;<a class="icon" 
+                        href="{{ path ("loan_return",{'id': loan.id, '_token': csrf_token('return' ~ loan.id) })}}" title="{{ 'btn.returned' | trans }}" 
+                        data-action="click->table#onClick" 
+                        data-pagination="true" 
+                        data-confirm="true"
+                        data-confirm_text="{{ 'message.returnConfirmationText' | trans }}"
+                        data-return="false">
+                     <i class="fas fa-reply"></i>
+                  </a>
+               {% endif %}
             {% endif %}               
             </td>
          </tr>
       {% endfor %}
       </tbody>
-      </table>
+   </table>
 {% else %}
    <div class="container alert alert-info m-2 text-center">
       {{'message.no_records' | trans }}

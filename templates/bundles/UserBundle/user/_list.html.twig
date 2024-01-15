@@ -1,0 +1,57 @@
+{% trans_default_domain 'user_bundle' %}
+
+{% if users is defined and users|length > 0 %}
+<table id="taula" class="table bootstrap-table mt-3"
+   {{ stimulus_controller('table', { 
+      'url': path('admin_user_index'),
+		'exportName': 'users',
+   }) }}
+   data-page-number="{{ page }}" 
+   data-page-size="{{ pageSize }}"
+   data-page-sortName="{{ sortName }}"
+   data-page-sortOrder="{{ sortOrder }}">
+<thead>
+   <tr>
+      <th data-sortable="true">{{"user.id" | trans | capitalize}}</th>
+      <th data-sortable="true">{{"user.username" | trans | capitalize}}</th>
+      <th data-sortable="true">{{"user.firstName" | trans | capitalize}}</th>
+      <th data-sortable="true">{{"user.email" | trans | capitalize}}</th>
+      <th data-sortable="true">{{"user.roles" | trans | capitalize}}</th>
+      <th data-sortable="true" data-field="options">{{"table.options" | trans | capitalize}}</th>
+   </tr>
+</thead>
+<tbody>
+   {% for user in users %}
+   <tr>
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.email}}</td>
+      <td>
+         {% set rolesCount = user.roles | filter((v,k) => v != 'ROLE_LAGAPENAK') | length %}
+         {% if rolesCount > 0 %}
+               {% for role in user.roles | filter((v,k) => v != 'ROLE_LAGAPENAK') %}
+                  {{ role | trans | capitalize }} 
+                  {% if loop.index < rolesCount %}|{% endif %}
+               {% endfor %}
+         {% else %}
+               {{ 'ROLE_LAGAPENAK' | trans }}
+         {% endif %}
+      </td>
+      <td>
+         <a href="{{ path ("admin_user_show",{'id': user.id })}}" data-action="click->table#onClick" data-pagination="false"><i class="fa fa-eye"></i></a>&nbsp;
+         <a href="{{ path ("admin_user_edit",{'id': user.id })}}" data-action="click->table#onClick" data-pagination="false"><i class="fa fa-edit"></i></a>&nbsp;
+         <a href="{{ path ('admin_user_delete',{'id': user.id })}}" 
+            data-action="click->table#onClick" 
+            data-pagination="true"
+            data-return="false"
+            data-confirm="true"><i class="fa fa-trash"></i></a>
+      </td>
+   </tr>
+   {% endfor %}
+</tbody>
+</table>
+{% else %}
+   <div class="mt-2 p-2 border border-black text-center bg-light">{{"messages.results0" | trans }}</div>
+{% endif %}
+<span class="pull-right"><a href="{{ path ('admin_user_new') }}" class="btn btn-primary rounded-circle fixed-bottom-right"><i class="fa fa-plus" title='{{ "btn.user.new" | trans | capitalize }}'></i></a></span>

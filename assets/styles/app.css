@@ -66,6 +66,10 @@ a.icon:hover {
     text-decoration: none;
 }
 
+td > a {
+    text-decoration: none;
+}
+
 @media (max-width: 767px) {
     .logo {
         height: 50px;

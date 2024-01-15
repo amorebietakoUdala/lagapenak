@@ -10,60 +10,42 @@ use AMREU\UserBundle\Model\User as BaseUser;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
-/**
- * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- */
+#[ORM\Table(name: 'user')]
+#[ORM\Entity(repositoryClass: \App\Repository\UserRepository::class)]
 class User extends BaseUser implements AMREUserInterface, PasswordAuthenticatedUserInterface
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     * @Groups({"list"})
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    #[Groups(['list'])]
     protected $id;
 
-    /**
-     * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups({"event","list"})
-     */
+    #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Groups(['event', 'list'])]
     protected $username;
 
-    /**
-     * @ORM\Column(type="json")
-     */
+    #[ORM\Column(type: 'json')]
     protected $roles = [];
 
     /**
      * @var string The hashed password
-     * @ORM\Column(type="string")
      */
+    #[ORM\Column(type: 'string')]
     protected $password;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     protected $firstName;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     protected $email;
 
-    /**
-     * @ORM\Column(type="boolean", options={"default":"1"}, nullable=true)
-     */
+    #[ORM\Column(type: 'boolean', options: ['default' => '1'], nullable: true)]
     protected $activated;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
+    #[ORM\Column(type: 'datetime', nullable: true)]
     protected $lastLogin;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Loan::class, mappedBy="askedBy")
-     */
+    #[ORM\OneToMany(targetEntity: Loan::class, mappedBy: 'askedBy')]
     private $loans;
 
     public function __construct()
@@ -71,7 +53,7 @@ class User extends BaseUser implements AMREUserInterface, PasswordAuthenticatedU
         $this->loans = new ArrayCollection();
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->username;
     }

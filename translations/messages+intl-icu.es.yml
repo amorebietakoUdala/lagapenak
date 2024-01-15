@@ -58,6 +58,8 @@ message.no_records: "No se han encontrado resultados"
 message.loan.saved: "Los cambios se han guardado correctamente"
 message.csrfInvalid: "Token CSRF inválido"
 link.editLoan: "Ver detalles"
+message.loanConfirmationText: "¿Está seguro de que desea prestar el expediente?"
+message.returnConfirmationText: "¿Está seguro de que desea marcar el expediente como devuelto?"
 
 # User administration
 user_deactivated: El usuario está desactivado

@@ -1,83 +1,81 @@
 <div class="container-fluid" {{ stimulus_controller('loan-form')}}>
    {{ form_start(filter) }}
       <div class="row">
-         <div class="col">
-            {{ form_label(filter.fromDate) }}&nbsp;
-            {{ form_widget(filter.fromDate,{
+         <div class="col-lg-2">
+            {{ form_row(filter.fromDate,{
                'attr': {
-                  'class': 'js-datepicker form-control form-control-sm mr-sm-2',
+                  'class': 'form-control form-control-sm mr-sm-2',
+                  'data-controller' : 'datetimepicker', 'data-datetimepicker-format-value': 'yyyy-MM-dd'
                }
             }) }}
          </div>
-         <div class="col">
-            {{ form_label(filter.toDate) }}&nbsp;
-            {{ form_widget(filter.toDate,{
+         <div class="col-lg-2">
+            {{ form_row(filter.toDate,{
                'attr': {
-                  'class': 'js-datepicker form-control form-control-sm mr-sm-2',
+                  'class': 'form-control form-control-sm mr-sm-2',
+                  'data-controller' : 'datetimepicker', 'data-datetimepicker-format-value': 'yyyy-MM-dd'
                }
             }) }} 
 
          </div>
-         <div class="col">
-            {{ form_label(filter.fromDateOfLoan) }}&nbsp;
-            {{ form_widget(filter.fromDateOfLoan,{
+         <div class="col-lg-2">
+            {{ form_row(filter.fromDateOfLoan,{
                'attr': {
-                  'class': 'js-datepicker form-control form-control-sm mr-sm-2',
+                  'class': 'form-control form-control-sm mr-sm-2',
+                  'data-controller' : 'datetimepicker', 'data-datetimepicker-format-value': 'yyyy-MM-dd'
                }
             }) }}
          </div> 
-         <div class="col">
-            {{ form_label(filter.toDateOfLoan) }}&nbsp;
-            {{ form_widget(filter.toDateOfLoan,{
+         <div class="col-lg-2">
+            {{ form_row(filter.toDateOfLoan,{
                'attr': {
-                  'class': 'js-datepicker form-control form-control-sm mr-sm-2',
+                  'class': 'form-control form-control-sm mr-sm-2',
+                  'data-controller' : 'datetimepicker', 'data-datetimepicker-format-value': 'yyyy-MM-dd'
                }
             }) }}
          </div>
-         <div class="col">
-            {{ form_label(filter.fromDateOfReturn) }}&nbsp;
-            {{ form_widget(filter.fromDateOfReturn,{
+         <div class="col-lg-2">
+            {{ form_row(filter.fromDateOfReturn,{
                'attr': {
-                  'class': 'js-datepicker form-control form-control-sm mr-sm-2',
+                  'class': 'form-control form-control-sm mr-sm-2',
+                  'data-controller' : 'datetimepicker', 'data-datetimepicker-format-value': 'yyyy-MM-dd'
                }
             }) }}
          </div>
-         <div class="col">
-            {{ form_label(filter.toDateOfReturn) }}&nbsp;
-            {{ form_widget(filter.toDateOfReturn,{
+         <div class="col-lg-2">
+            {{ form_row(filter.toDateOfReturn,{
                'attr': {
-                  'class': 'js-datepicker form-control form-control-sm mr-sm-2',
+                  'class': 'form-control form-control-sm mr-sm-2',
+                  'data-controller' : 'datetimepicker', 'data-datetimepicker-format-value': 'yyyy-MM-dd'
                }
             }) }} 
          </div>
       </div>
       <div class="row">
-         <div class="col">
-            {{ form_label(filter.status) }}&nbsp;
-            {{ form_widget(filter.status,{
+         <div class="col-lg-2">
+            {{ form_row(filter.status,{
                'attr': {
-                  'class': 'form-control form-control-sm mr-sm-2',
+                  'class': 'form-select form-select-sm',
+               }
+            }) }}
+            </div>
+            <div class="col-lg-3">
+            {{ form_row(filter.askedBy,{
+               'attr': {
+                  'class': 'form-select form-select-sm',
+                  'data-controller' : 'select2'
+               }
+            }) }}
+            </div>
+            <div class="col-lg-2">
+            {{ form_row(filter.signature,{
+               'attr': {
+                  'class': 'form-control form-control-sm',
                }
             }) }}
             </div>
             <div class="col">
-            {{ form_label(filter.askedBy) }}&nbsp;
-            {{ form_widget(filter.askedBy,{
-               'attr': {
-                  'class': 'js-askedBySelect form-control form-control-sm mr-sm-2',
-               }
-            }) }}
-            </div>
-            <div class="col">
-            {{ form_label(filter.signature) }}&nbsp;
-            {{ form_widget(filter.signature,{
-               'attr': {
-                  'class': 'form-control form-control-sm mr-sm-2',
-               }
-            }) }}
-            </div>
-            <div class="col">
-            <button type="submit" class="btn btn-primary btn-md mt-2 float-right">{{ 'btn.search' | trans }}</button>
+               <button type="submit" class="btn btn-primary btn-md mt-2 float-right">{{ 'btn.search' | trans }}</button>
             </div>
          </div>
       </div>

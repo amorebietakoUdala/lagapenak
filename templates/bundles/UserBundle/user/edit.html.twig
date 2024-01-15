@@ -9,16 +9,6 @@
 
 {% block user_content %}
     <main class="container-fluid" >
-		{{ include ('@User/user/_form.html.twig', {'readonly': readonly, 'new': new , 'password_change': password_change}) }}
+		  {{ include ('@User/user/_form.html.twig', {'readonly': readonly, 'new': new , 'password_change': password_change}) }}
     </main>
 {% endblock user_content %}
-
-{% block stylesheets %}
-	{{ parent() }}
-	{{ encore_entry_link_tags('user_edit') }}
-{% endblock %}
-
-{% block javascripts %}
-	{{ parent() }}
-	{{ encore_entry_script_tags('user_edit') }}
-{% endblock %}
