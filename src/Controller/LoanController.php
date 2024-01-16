@@ -117,7 +117,7 @@ class LoanController extends BaseController
         if ($this->isCsrfTokenValid('delete'.$loan->getId(), $request->get('_token'))) {
             $this->em->remove($loan);
             $this->em->flush();
-            return $this->redirectToRoute('loan_index');
+            return new Response(null, Response::HTTP_OK);
         }
 
         return new Response(null, Response::HTTP_UNPROCESSABLE_ENTITY);

@@ -3,13 +3,11 @@ import { Controller } from '@hotwired/stimulus';
 import $ from 'jquery';
 
 export default class extends Controller {
-    static targets = ['form', 'token'];
+    static targets = ['form'];
     static values = {}
 
     async deleteConfirmation(event) {
         event.preventDefault();
-        this.tokenTarget.value=event.currentTarget.dataset.csrf_token;
-        this.formTarget.action=event.currentTarget.dataset.url;
         this.submit(event.currentTarget.dataset.return_url);
     }
 
@@ -27,7 +25,7 @@ export default class extends Controller {
                         data: $form.serialize(),
                     });
                     this.dispatch('success');
-                    if (null !== returnUrl) {
+                    if (null != returnUrl) {
                         document.location.href=returnUrl;
                     }
                 } catch (e) {

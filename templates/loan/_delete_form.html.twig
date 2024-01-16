@@ -1,4 +1,6 @@
 <form class="mt-2" method="post" action="{{ path('loan_delete', {'id': loan.id}) }}" data-loan-action-target="form">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ loan.id) }}" data-loan-action-target="token">
-    <button class="btn btn-danger btn" data-action="loan-action#deleteConfirmation" data-return_url="{{ path('loan_index') }}">{{ 'btn.delete' | trans }}</button>
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ loan.id) }}">
+    <button class="btn btn-danger btn" data-action="loan-action#deleteConfirmation" data-return_url="{{ path('loan_index') }}">
+        {{ 'btn.delete' | trans }}
+    </button>
 </form>
