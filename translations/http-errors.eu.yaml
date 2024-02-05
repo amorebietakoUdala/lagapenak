@@ -1,0 +1,20 @@
+# Buttons
+btn.returnToMainPage: "Orri nagusira itzuli"
+btn.returnToLoginPage: "Sartu berriz sartu erabiltzaile eta pasahitza"
+
+# Messages
+http.status.default.title: "Ustekabeko arazo bat gertatu da"
+http.status.default.description: "Zerbitzariak akats bat eman du: <b>%statusCode% %statusText%</b>"
+http.status.default.aditional: "Mesedez, saia zaitez beranduago edo jar zaitezte harremanetan informatika sailarekin <a href=\"mailto:%contactEmailDefault%?subject=Error\">%contactEmailDefault%</a> postaren bidez.<br>"
+http.status.default.description.nodepartment: "No tiene permiso para acceder a esta aplicación.<br>Póngase en contacto con el departamento responsable.<br>"
+
+http.status.401.title: "Baimendu gabea"
+http.status.401.description: "Ez duzu aplikazio honetara sartzeko baimenik.<br>'%department%' sailarekin harremanetan jar zaitez hurrengo postontziaren bitartez <a href=\"mailto:%contactEmail%?subject=Baimenak/Permisos\">%contactEmail%</a>.<br>"
+http.status.401.description.nodepartment: "Ez duzu aplikazio honetara sartzeko baimenik.<br>Jar zaitez harremanetan dagokion sailarekin.<br>"
+
+http.status.403.title: "Baimendu gabea"
+http.status.403.description: "Ez duzu aplikazio honetara sartzeko baimenik.<br>'%department%' sailarekin harremanetan jar zaitez hurrengo postontziaren bitartez <a href=\"mailto:%contactEmail%?subject=Baimenak/Permisos\">%contactEmail%</a>.<br>"
+http.status.403.description.nodepartment: "Ez duzu aplikazio honetara sartzeko baimenik.<br>Jar zaitez harremanetan dagokion sailarekin.<br>"
+
+http.status.404.title: "Orrialdea ezin izan da aurkitu"
+http.status.404.description: "Sartutako helbidea ez da aurkitu. Beheko botoiarekin joan zaitezke orrialde nagusira."

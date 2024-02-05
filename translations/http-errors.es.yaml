@@ -1,0 +1,20 @@
+# Buttons
+btn.returnToMainPage: "Volver a la página principal"
+btn.returnToLoginPage: "Volver a autenticarse"
+
+# Messages
+http.status.default.title: "Ha ocurrido un problema inesperado"
+http.status.default.description: "El servidor a dado un error: <b>%statusCode% %statusText%</b>"
+http.status.default.aditional: "Por favor inténtelo más tarde o pongánse en contacto con el departamento de informática a través del correo <a href=\"mailto:%contactEmailDefault%?subject=Error\">%contactEmailDefault%</a>.<br>"
+
+http.status.401.title: "No Autorizado"
+http.status.401.description: "No tiene permiso para acceder a esta aplicación.<br>Póngase en contacto con el departamento '%department%' a través del correo <a href=\"mailto:%contactEmail%?subject=Baimenak/Permisos\">%contactEmail%</a>.<br>"
+http.status.401.description.nodepartment: "No tiene permiso para acceder a esta aplicación.<br>Póngase en contacto con el departamento responsable.<br>"
+
+http.status.403.title: "No Autorizado"
+http.status.403.description: "No tiene permiso para acceder a esta aplicación.<br>Póngase en contacto con el departamento '%department%' a través del correo <a href=\"mailto:%contactEmail%?subject=Baimenak/Permisos\">%contactEmail%</a><br>"
+http.status.403.description.nodepartment: "No tiene permiso para acceder a esta aplicación.<br>Póngase en contacto con el departamento responsable.<br>"
+
+http.status.404.title: "Página no encontrada"
+http.status.404.description: "La página solicitada no se encuentra. Puede ir a la página principal utilizando el botón de abajo."
+
