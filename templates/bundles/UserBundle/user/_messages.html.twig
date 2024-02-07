@@ -1,0 +1,21 @@
+{% trans_default_domain 'user_bundle' %}
+
+{% for msg in app.session.flashBag.get('success') %}
+	<div class="alert alert-success">
+		{{ msg | trans}}
+	</div>
+{% endfor %}
+{% for msg in app.session.flashBag.get('error') %}
+	<div class="alert alert-danger">
+		{% if message is defined %}
+			{{ msg | trans({'%message%' : message},"messages", app.request.locale) }}
+		{% else %}
+			{{ msg | trans }}
+		{% endif %}
+	</div>
+{% endfor %}
+{% for msg in app.session.flashBag.get('warning') %}
+	<div class="alert alert-warning">
+		{{ msg | trans | capitalize }}
+	</div>
+{% endfor %}

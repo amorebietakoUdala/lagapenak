@@ -7,6 +7,10 @@
 	{% endif %}
 {% endblock %}
 
+{% block message %}
+	{{ include('@User/user/_messages.html.twig') }}
+{% endblock message %}
+
 {% block body %}
     {% block user_content %}{% endblock %}
 {% endblock %}

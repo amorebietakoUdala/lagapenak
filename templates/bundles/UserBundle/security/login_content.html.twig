@@ -6,7 +6,9 @@
 	    <div class="container col-lg-5 col-md-5 p-3 border border-info rounded bg-light">
             <form action="{{ path("user_security_login_check") }}" method="post">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
-
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey | trans }}</div>
+                {% endif %}
                 <div class="form-group">
                 <label for="username">{{ 'user.username'| trans | capitalize }}</label>
                 <input class="form-control" type="text" id="username" name="username" value="{{ last_username }}" required="required" />
