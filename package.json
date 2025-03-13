@@ -30,6 +30,7 @@
         "build": "encore production --progress"
     },
     "resolutions": {
+        "canvg": "^4.0.2",
         "xlsx": "https://cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz",
         "jquery": "3.6.1"
     },
