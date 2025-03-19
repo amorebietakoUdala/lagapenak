@@ -7,7 +7,7 @@ __metadata:
 
 "@amorebietakoudala/stimulus-controller-bundle@file:vendor/amorebietakoudala/stimulus-controller-bundle/assets::locator=root-workspace-0b6124%40workspace%3A.":
   version: 0.1.0
-  resolution: "@amorebietakoudala/stimulus-controller-bundle@file:vendor/amorebietakoudala/stimulus-controller-bundle/assets#vendor/amorebietakoudala/stimulus-controller-bundle/assets::hash=bfee99&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@amorebietakoudala/stimulus-controller-bundle@file:vendor/amorebietakoudala/stimulus-controller-bundle/assets#vendor/amorebietakoudala/stimulus-controller-bundle/assets::hash=f81b37&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@eonasdan/tempus-dominus": "npm:^6.2.10"
     "@hotwired/stimulus": "npm:^3.0.0"
@@ -18,7 +18,7 @@ __metadata:
     select2-bootstrap-5-theme: "npm:^1.3.0"
     sweetalert2: "npm:11.4.8"
     tableexport.jquery.plugin: "npm:^1.26.0"
-  checksum: 10c0/2d0e2b3f68be9c32cdeabf32816a6e66a311ab7c1739644058f5694fcbaeb474dd97542ffb717ee1f2bca4f9d912e62372925ff3bda33fe0dc1935bf6cfbbf63
+  checksum: 10c0/5c982e7164b30143e04242f768169e55fbc84ec70414d6cb22633ebce68d8cc5b186d2110aa485621ade55dbf65f013157c18ccc2b1be4890096cae6692e20cb
   languageName: node
   linkType: hard
 
@@ -1287,7 +1287,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.26.0, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.26.7, @babel/runtime@npm:^7.8.4":
   version: 7.26.10
   resolution: "@babel/runtime@npm:7.26.10"
   dependencies:
@@ -5028,13 +5028,13 @@ __metadata:
   linkType: hard
 
 "jspdf@npm:>=2.0.0":
-  version: 3.0.0
-  resolution: "jspdf@npm:3.0.0"
+  version: 3.0.1
+  resolution: "jspdf@npm:3.0.1"
   dependencies:
-    "@babel/runtime": "npm:^7.26.0"
+    "@babel/runtime": "npm:^7.26.7"
     atob: "npm:^2.1.2"
     btoa: "npm:^1.2.1"
-    canvg: "npm:^3.0.6"
+    canvg: "npm:^3.0.11"
     core-js: "npm:^3.6.0"
     dompurify: "npm:^3.2.4"
     fflate: "npm:^0.8.1"
@@ -5048,7 +5048,7 @@ __metadata:
       optional: true
     html2canvas:
       optional: true
-  checksum: 10c0/cf1422322ac72d3b38096143475cfe00549fdfc924dd4199ca6a3472138bcb9467176954b89bcc99287b42ff0278b6e67b7362709a8c1415354c4e33520c9fd6
+  checksum: 10c0/db900f44d9cdf2c51bd5a7ffe9c55711aff68e7751a61291cc2451f06cfa1e268ecd5947c37e0f9097c999d751e3cdd1560f5a4a242376530100654c70970eda
   languageName: node
   linkType: hard
 
