@@ -1434,10 +1434,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hotwired/turbo@npm:^7.0.1":
-  version: 7.3.0
-  resolution: "@hotwired/turbo@npm:7.3.0"
-  checksum: ccc03c980e4b4636e48ea2132c7d28be1be4f4e6123f63905fbf871e7647369b5c6ce53301443b218d7abf68fa4897eaf614254688108ed6ae303c5040241a97
+"@hotwired/turbo@npm:^8.0.21":
+  version: 8.0.21
+  resolution: "@hotwired/turbo@npm:8.0.21"
+  checksum: 829faffff25ca0a307df167c8f8200681c93f9ca8a9a553545f58caa16675ab10e383eb5ae73e1d79388ce46e8caa61e4d4f1f36a7e9016ad72d48c57ea9cbf1
   languageName: node
   linkType: hard
 
@@ -4395,7 +4395,7 @@ __metadata:
     "@babel/preset-env": ^7.20.2
     "@fortawesome/fontawesome-free": ^6.2.1
     "@hotwired/stimulus": ^3.0.0
-    "@hotwired/turbo": ^7.0.1
+    "@hotwired/turbo": ^8.0.21
     "@popperjs/core": ^2.9.2
     "@symfony/stimulus-bridge": ^3.2.0
     "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/assets"
