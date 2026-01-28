@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Loan;
 use App\Form\LoanSearchType;
 use App\Form\LoanType;
+use App\Repository\LoanRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
@@ -18,7 +19,10 @@ use Symfony\Component\Mime\Email;
 class LoanController extends BaseController
 {
 
-    public function __construct(private readonly MailerInterface $mailer, private readonly EntityManagerInterface $em)
+    public function __construct(
+        private readonly MailerInterface $mailer, 
+        private readonly EntityManagerInterface $em,
+        private readonly LoanRepository $repo)
     {
     }
 
@@ -167,7 +171,7 @@ class LoanController extends BaseController
         $searchFilter->handleRequest($request);
         if ($searchFilter->isSubmitted() && $searchFilter->isValid()) {
             $criteria = $searchFilter->getData();
-            $loans = $this->em->getRepository(Loan::class)->findLoansByCriteria($criteria);
+            $loans = $this->repo->findLoansByCriteria($criteria);
 
             $template = $request->query->get('ajax') || $request->isXmlHttpRequest() ? '_list.html.twig' : 'index.html.twig';
 
@@ -178,13 +182,13 @@ class LoanController extends BaseController
         }
 
         if ( in_array('ROLE_ARCHIVER', $user->getRoles()) || in_array('ROLE_ADMIN', $user->getRoles())) {
-            $loans = $this->em->getRepository(Loan::class)->findBy([
+            $loans = $this->repo->findBy([
                 'dateOfReturn' => null,
             ],[
                 'date' => 'DESC'
             ]);
         } else {
-            $loans = $this->em->getRepository(Loan::class)->findBy([
+            $loans = $this->repo->findBy([
                 'askedBy' => $user,
                 // If we wan't to return only, not returned loans, add this filter
                 // 'dateOfReturn' => null,
