@@ -7,6 +7,7 @@ use App\Form\LoanSearchType;
 use App\Form\LoanType;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -60,7 +61,7 @@ class LoanController extends BaseController
     }
 
     #[Route(path: '/{_locale}/loan/{id}', name: 'loan_show', methods: ['GET', 'POST'])]
-    public function show(Request $request, Loan $loan): Response
+    public function show(Request $request, #[MapEntity(id: 'id')] Loan $loan): Response
     {
         $this->loadQueryParameters($request);
         $form = $this->createForm(LoanType::class, $loan, [
@@ -76,7 +77,7 @@ class LoanController extends BaseController
     }
 
     #[Route(path: '/{_locale}/loan/{id}/edit', name: 'loan_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Loan $loan): Response
+    public function edit(Request $request, #[MapEntity(id: 'id')] Loan $loan): Response
     {
         $this->loadQueryParameters($request);
         $form = $this->createForm(LoanType::class, $loan, [
@@ -111,7 +112,7 @@ class LoanController extends BaseController
     }
 
     #[Route(path: '{_locale}/loan/{id}/delete', name: 'loan_delete', methods: ['POST'])]
-    public function delete(Request $request, Loan $loan): Response
+    public function delete(Request $request, #[MapEntity(id: 'id')]  Loan $loan): Response
     {
         $this->loadQueryParameters($request);
         if ($this->isCsrfTokenValid('delete'.$loan->getId(), $request->get('_token'))) {
@@ -124,7 +125,7 @@ class LoanController extends BaseController
     }
 
     #[Route(path: '{_locale}/loan/{id}/send', name: 'loan_send', methods: ['GET'])]
-    public function send(Request $request, Loan $loan): Response
+    public function send(Request $request, #[MapEntity(id: 'id')] Loan $loan): Response
     {
         $this->loadQueryParameters($request);
         if ($this->isCsrfTokenValid('send'.$loan->getId(), $request->get('_token'))) {
@@ -138,7 +139,7 @@ class LoanController extends BaseController
     }
 
     #[Route(path: '{_locale}/loan/{id}/return', name: 'loan_return', methods: ['GET'])]
-    public function return(Request $request, Loan $loan): Response
+    public function return(Request $request, #[MapEntity(id: 'id')] Loan $loan): Response
     {
         $this->loadQueryParameters($request);
         if ($this->isCsrfTokenValid('return'.$loan->getId(), $request->get('_token'))) {
