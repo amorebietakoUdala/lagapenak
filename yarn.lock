@@ -7,7 +7,7 @@ __metadata:
 
 "@amorebietakoudala/stimulus-controller-bundle@file:vendor/amorebietakoudala/stimulus-controller-bundle/assets::locator=root-workspace-0b6124%40workspace%3A.":
   version: 0.1.0
-  resolution: "@amorebietakoudala/stimulus-controller-bundle@file:vendor/amorebietakoudala/stimulus-controller-bundle/assets#vendor/amorebietakoudala/stimulus-controller-bundle/assets::hash=58706c&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@amorebietakoudala/stimulus-controller-bundle@file:vendor/amorebietakoudala/stimulus-controller-bundle/assets#vendor/amorebietakoudala/stimulus-controller-bundle/assets::hash=036da7&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@eonasdan/tempus-dominus": ^6.2.10
     "@hotwired/stimulus": ^3.0.0
@@ -18,17 +18,7 @@ __metadata:
     select2-bootstrap-5-theme: ^1.3.0
     sweetalert2: 11.4.8
     tableexport.jquery.plugin: ^1.26.0
-  peerDependencies:
-    "@eonasdan/tempus-dominus": ^6.2.10
-    "@hotwired/stimulus": ^3.0.0
-    bootstrap: ^5.2.3
-    bootstrap-table: 1.21.1
-    jquery: 3.6.1
-    select2: ^4.1.0-rc.0
-    select2-bootstrap-5-theme: ^1.3.0
-    sweetalert2: 11.4.8
-    tableexport.jquery.plugin: ^1.26.0
-  checksum: 9113715e40f3a9b146a103dff880d7edd0f6c96aa71e6c4cc788b2f9986a2e68241d2c72e65001fd65449d8f8929413f7a81033bd29e39c2d8507dc41541e4a4
+  checksum: 80ab506a472d3f8f822a62aad4c7d807aa3f8377ae08d75223bb04dada4696554a09a9aaa0c2efde8e5763f595aba7effcdddbe35ad2c048f9e53d8ba52db3fb
   languageName: node
   linkType: hard
 
@@ -1601,11 +1591,8 @@ __metadata:
 
 "@symfony/ux-turbo@file:vendor/symfony/ux-turbo/assets::locator=root-workspace-0b6124%40workspace%3A.":
   version: 0.1.0
-  resolution: "@symfony/ux-turbo@file:vendor/symfony/ux-turbo/assets#vendor/symfony/ux-turbo/assets::hash=57adaa&locator=root-workspace-0b6124%40workspace%3A."
-  peerDependencies:
-    "@hotwired/stimulus": ^3.0.0
-    "@hotwired/turbo": ^7.1.1 || ^8.0
-  checksum: 07b98d7b76d46bc946b8da6f6b272c52fc54ca7c434c0ee5b8e99d00899d352828f6c0402d39e8cd669d128025a6753f6ba73b3c7e0f0ebb821182a3e408736f
+  resolution: "@symfony/ux-turbo@file:vendor/symfony/ux-turbo/assets#vendor/symfony/ux-turbo/assets::hash=4ceccb&locator=root-workspace-0b6124%40workspace%3A."
+  checksum: dd2c756cf4c8048641f69e10f81254952159c7ecbdeace15799677cae7ea605442485a6128eef7768ce2ff0f8819663050e29a193f59db30175006a942ebcd8c
   languageName: node
   linkType: hard
 
@@ -1719,13 +1706,6 @@ __metadata:
   bin:
     encore: bin/encore.js
   checksum: 1eb3ad323d8f3fa19ab465ff0a94e1269a9837516c9128285d90243b6797ecd2bb1f0ae24a3a0f989810d865d75f157ccdbfb8b06ecc96987d93f3ebbd32a60b
-  languageName: node
-  linkType: hard
-
-"@trysound/sax@npm:0.2.0":
-  version: 0.2.0
-  resolution: "@trysound/sax@npm:0.2.0"
-  checksum: 11226c39b52b391719a2a92e10183e4260d9651f86edced166da1d95f39a0a1eaa470e44d14ac685ccd6d3df7e2002433782872c0feeb260d61e80f21250e65c
   languageName: node
   linkType: hard
 
@@ -4489,6 +4469,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sax@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "sax@npm:1.5.0"
+  checksum: e143cbeb6ca59345db142d97d1bbb620553beb8b166eda36ffeaba4b01af47dcf0423cd8781d0805b75feea69462cf80d0db7bf0a7e6dd87b711fda51b9153df
+  languageName: node
+  linkType: hard
+
 "schema-utils@npm:^3.0.0":
   version: 3.3.0
   resolution: "schema-utils@npm:3.3.0"
@@ -4739,19 +4726,19 @@ __metadata:
   linkType: hard
 
 "svgo@npm:^3.3.2":
-  version: 3.3.2
-  resolution: "svgo@npm:3.3.2"
+  version: 3.3.3
+  resolution: "svgo@npm:3.3.3"
   dependencies:
-    "@trysound/sax": 0.2.0
     commander: ^7.2.0
     css-select: ^5.1.0
     css-tree: ^2.3.1
     css-what: ^6.1.0
     csso: ^5.0.5
     picocolors: ^1.0.0
+    sax: ^1.5.0
   bin:
     svgo: ./bin/svgo
-  checksum: a3f8aad597dec13ab24e679c4c218147048dc1414fe04e99447c5f42a6e077b33d712d306df84674b5253b98c9b84dfbfb41fdd08552443b04946e43d03e054e
+  checksum: ad9c27f19f1f8a6e45bae1b280eb68028da5449359c4daf2c539fc099ab6c76852335d96300a030af4e6866e500159fe80f43a732b8a2905ffa1bd4339da520c
   languageName: node
   linkType: hard
 
