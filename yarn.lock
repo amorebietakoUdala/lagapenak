@@ -7,7 +7,7 @@ __metadata:
 
 "@amorebietakoudala/stimulus-controller-bundle@file:vendor/amorebietakoudala/stimulus-controller-bundle/assets::locator=root-workspace-0b6124%40workspace%3A.":
   version: 0.1.0
-  resolution: "@amorebietakoudala/stimulus-controller-bundle@file:vendor/amorebietakoudala/stimulus-controller-bundle/assets#vendor/amorebietakoudala/stimulus-controller-bundle/assets::hash=036da7&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@amorebietakoudala/stimulus-controller-bundle@file:vendor/amorebietakoudala/stimulus-controller-bundle/assets#vendor/amorebietakoudala/stimulus-controller-bundle/assets::hash=58706c&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@eonasdan/tempus-dominus": ^6.2.10
     "@hotwired/stimulus": ^3.0.0
@@ -18,7 +18,17 @@ __metadata:
     select2-bootstrap-5-theme: ^1.3.0
     sweetalert2: 11.4.8
     tableexport.jquery.plugin: ^1.26.0
-  checksum: 80ab506a472d3f8f822a62aad4c7d807aa3f8377ae08d75223bb04dada4696554a09a9aaa0c2efde8e5763f595aba7effcdddbe35ad2c048f9e53d8ba52db3fb
+  peerDependencies:
+    "@eonasdan/tempus-dominus": ^6.2.10
+    "@hotwired/stimulus": ^3.0.0
+    bootstrap: ^5.2.3
+    bootstrap-table: 1.21.1
+    jquery: 3.6.1
+    select2: ^4.1.0-rc.0
+    select2-bootstrap-5-theme: ^1.3.0
+    sweetalert2: 11.4.8
+    tableexport.jquery.plugin: ^1.26.0
+  checksum: 9113715e40f3a9b146a103dff880d7edd0f6c96aa71e6c4cc788b2f9986a2e68241d2c72e65001fd65449d8f8929413f7a81033bd29e39c2d8507dc41541e4a4
   languageName: node
   linkType: hard
 
@@ -1591,8 +1601,11 @@ __metadata:
 
 "@symfony/ux-turbo@file:vendor/symfony/ux-turbo/assets::locator=root-workspace-0b6124%40workspace%3A.":
   version: 0.1.0
-  resolution: "@symfony/ux-turbo@file:vendor/symfony/ux-turbo/assets#vendor/symfony/ux-turbo/assets::hash=4ceccb&locator=root-workspace-0b6124%40workspace%3A."
-  checksum: dd2c756cf4c8048641f69e10f81254952159c7ecbdeace15799677cae7ea605442485a6128eef7768ce2ff0f8819663050e29a193f59db30175006a942ebcd8c
+  resolution: "@symfony/ux-turbo@file:vendor/symfony/ux-turbo/assets#vendor/symfony/ux-turbo/assets::hash=57adaa&locator=root-workspace-0b6124%40workspace%3A."
+  peerDependencies:
+    "@hotwired/stimulus": ^3.0.0
+    "@hotwired/turbo": ^7.1.1 || ^8.0
+  checksum: 07b98d7b76d46bc946b8da6f6b272c52fc54ca7c434c0ee5b8e99d00899d352828f6c0402d39e8cd669d128025a6753f6ba73b3c7e0f0ebb821182a3e408736f
   languageName: node
   linkType: hard
 
@@ -3759,7 +3772,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pdfkit@npm:^0.17.1":
+"pdfkit@npm:^0.17.2":
   version: 0.17.2
   resolution: "pdfkit@npm:0.17.2"
   dependencies:
@@ -3773,13 +3786,13 @@ __metadata:
   linkType: hard
 
 "pdfmake@npm:^0.3.0-beta.17":
-  version: 0.3.0-beta.18
-  resolution: "pdfmake@npm:0.3.0-beta.18"
+  version: 0.3.6
+  resolution: "pdfmake@npm:0.3.6"
   dependencies:
     linebreak: ^1.1.0
-    pdfkit: ^0.17.1
-    xmldoc: ^2.0.1
-  checksum: 316dc5b19fbc39d6cc637d267362958aa313fcb84446e290177071d72c9fd6a145e9ebdba361adea0df163eac1ae44cb0ce285764a3dd30ebcf1104860bdef69
+    pdfkit: ^0.17.2
+    xmldoc: ^2.0.3
+  checksum: a70c38923eb317d135e128aa7c1c623f843ccf658c28c08adbbeb3f7880cf1e4c5b60d86b6473e3a9805397357c832cb9bc0a199f3be3c60300870a8cf3d4cd3
   languageName: node
   linkType: hard
 
@@ -4462,14 +4475,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"sax@npm:^1.2.4":
-  version: 1.3.0
-  resolution: "sax@npm:1.3.0"
-  checksum: 238ab3a9ba8c8f8aaf1c5ea9120386391f6ee0af52f1a6a40bbb6df78241dd05d782f2359d614ac6aae08c4c4125208b456548a6cf68625aa4fe178486e63ecd
-  languageName: node
-  linkType: hard
-
-"sax@npm:^1.5.0":
+"sax@npm:^1.4.3, sax@npm:^1.5.0":
   version: 1.5.0
   resolution: "sax@npm:1.5.0"
   checksum: e143cbeb6ca59345db142d97d1bbb620553beb8b166eda36ffeaba4b01af47dcf0423cd8781d0805b75feea69462cf80d0db7bf0a7e6dd87b711fda51b9153df
@@ -5138,12 +5144,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xmldoc@npm:^2.0.1":
-  version: 2.0.2
-  resolution: "xmldoc@npm:2.0.2"
+"xmldoc@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "xmldoc@npm:2.0.3"
   dependencies:
-    sax: ^1.2.4
-  checksum: 583b956e15d8e681f99cd8aa09bfce3071f5f75b75c4f65e981796c09bbe24897f2613d32ba94b98b9128a710cf1e7fedf678aca861347a6f16611fb7c96be4a
+    sax: ^1.4.3
+  checksum: ec18790717b6eeba3dc5f16f20d09d264292bdca3a9b58b656d2800c8a1c8f59971f7a5919dc7008a05f8c0471eed8de1b87ccde144265dfd7ec77c01c3815ed
   languageName: node
   linkType: hard
 
